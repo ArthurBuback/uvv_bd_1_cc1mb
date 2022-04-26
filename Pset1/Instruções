@@ -1,9 +1,0 @@
-# Maria DB
- Primeiro, digite "mysql -u root -p" para entrar no MariaDB e preencha a senha "computacao@raiz"
-
-Após isso, digite o seguinte código para criação do User Arthur
-`CREATE USER 'arthur'@'localhost' identified BY '1234';
-GRANT ALL PRIVILEGES ON *.* TO 'arthur'@'localhost';
-exit;`
-
-Após a criação
