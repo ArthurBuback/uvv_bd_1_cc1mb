@@ -1,12 +1,7 @@
---mysql -u root -p
---computacao@raiz
-
 CREATE USER 'arthur'@'localhost' identified BY '1234';
 GRANT ALL PRIVILEGES ON *.* TO 'arthur'@'localhost';
 exit;
 
---mysql -u arthur -p
---1234
 
 CREATE database IF NOT exists uvv;
 USE uvv;
