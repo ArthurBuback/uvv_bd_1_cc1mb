@@ -1,12 +1,7 @@
---psql -U postgres -W
---computacao@raiz
-
 create user arthur with encrypted password '1234';
 alter user arthur createdb;
 exit;
 
---psql -U arthur postgres -W
---1234
 
 create database uvv
 with owner = arthur
@@ -17,7 +12,7 @@ lc_ctype = 'pt_BR.UTF-8'
 allow_connections = true;
 
 \c uvv;
---1234
+
 
 create schema if not exists elmasri authorization arthur;
 set search_path to elmasri, "$user", public;
