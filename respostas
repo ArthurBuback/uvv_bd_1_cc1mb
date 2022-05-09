@@ -1,1 +1,0 @@
-select avg(salario) from funcionario group by numero_departamento;
