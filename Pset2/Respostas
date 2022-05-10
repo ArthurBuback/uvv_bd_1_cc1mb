@@ -1,0 +1,11 @@
+# RESPOSTA 1
+SELECT numero_departamento, avg(salario) FROM funcionario group by numero_departamento;
+
+# RESPOSTA 2
+SELECT sexo, avg(salario) FROM funcionario group by sexo;
+
+# RESPOSTA 3
+SELECT nome_departamento, CONCAT(primeiro_nome, " ", nome_meio, ". ", ultimo_nome) AS nome_completo , data_nascimento, TIMESTAMPDIFF(YEAR, data_nascimento, curdate()) AS idade, salario FROM departamento, funcionario WHERE departamento.numero_departamento = funcionario.numero_departamento ORDER BY departamento.numero_departamento;
+
+# RESPOSTA 4
+SELECT CONCAT(primeiro_nome," ", nome_meio,". ", ultimo_nome) AS nome_completo, TIMESTAMPDIFF(YEAR, data_nascimento, curdate()) AS idade, salario, CASE WHEN salario<35000 THEN salario * 1.2 WHEN salario >= 35000 THEN salario * 1.15 END AS salario_com_reajuste FROM funcionario;
