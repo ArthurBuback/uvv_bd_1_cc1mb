@@ -9,3 +9,14 @@ SELECT nome_departamento, CONCAT(primeiro_nome, " ", nome_meio, ". ", ultimo_nom
 
 # RESPOSTA 4
 SELECT CONCAT(primeiro_nome," ", nome_meio,". ", ultimo_nome) AS nome_completo, TIMESTAMPDIFF(YEAR, data_nascimento, curdate()) AS idade, salario, CASE WHEN salario<35000 THEN salario * 1.2 WHEN salario >= 35000 THEN salario * 1.15 END AS salario_com_reajuste FROM funcionario;
+
+# RESPOSTA 5
+SELECT nome_departamento, CASE cpf_gerente WHEN '33344555587' THEN 'Fernando' WHEN '88866555576' THEN 'Jorge' WHEN '98765432168' THEN 'Jennifer' END AS nome_gerente, CASE primeiro_nome WHEN cpf = cpf_gerente THEN primeiro_nome ELSE 'NULL' END AS funcionario FROM departamento, funcionario WHERE departamento.numero_departamento = funcionario.numero_departamento ORDER BY nome_departamento, salario;
+
+# RESPOSTA 6
+SELECT CONCAT(primeiro_nome," ", nome_meio,". ", ultimo_nome) AS nome_completo, numero_departamento, CONCAT(nome_dependente," ", nome_meio, ". ", ultimo_nome) AS nome_completo_dependente, TIMESTAMPDIFF(YEAR, dependente.data_nascimento, curdate()) AS idade_dependente, CASE dependente.sexo WHEN 'M' THEN 'Masculino' ELSE 'Feminino' END AS sexo_dependente  FROM funcionario, dependente WHERE funcionario.cpf = dependente.cpf_funcionario;
+
+# RESPOSTA 7
+SELECT DISTINCT CONCAT(primeiro_nome, " ", nome_meio,". ", ultimo_nome) AS nome_completo, numero_departamento, salario FROM funcionario, dependente EXCEPT SELECT DISTINCT CONCAT(primeiro_nome, " ", nome_meio,". ", ultimo_nome) AS nome_completo, numero_departamento, salario FROM funcionario, dependente where funcionario.cpf = dependente.cpf_funcionario;
+
+# RESPOSTA 8
