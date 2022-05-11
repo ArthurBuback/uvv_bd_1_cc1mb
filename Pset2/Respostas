@@ -21,3 +21,9 @@ SELECT DISTINCT CONCAT(primeiro_nome, " ", nome_meio,". ", ultimo_nome) AS nome_
 
 # RESPOSTA 8
 SELECT nome_departamento, nome_projeto, CONCAT(primeiro_nome, " ", nome_meio,". ", ultimo_nome) AS nome_completo, horas FROM departamento, projeto, funcionario, trabalha_em WHERE departamento.numero_departamento = projeto.numero_departamento AND departamento.numero_departamento = funcionario.numero_departamento AND trabalha_em.cpf_funcionario = funcionario.cpf AND projeto.numero_projeto = trabalha_em.numero_projeto ORDER BY nome_completo;
+
+# RESPOSTA 9
+
+
+# RESPOSTA 10
+SELECT numero_departamento, avg(salario) FROM funcionario group by numero_departamento;
