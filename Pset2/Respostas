@@ -33,3 +33,11 @@ SELECT CONCAT(primeiro_nome, " ", nome_meio,". ", ultimo_nome) AS nome_completo,
 
 # REPOSTA 12
 SELECT nome_departamento, nome_projeto, CONCAT(primeiro_nome, " ", nome_meio,". ", ultimo_nome) AS nome_completo FROM departamento, projeto, funcionario, trabalha_em WHERE departamento.numero_departamento = projeto.numero_departamento AND departamento.numero_departamento = funcionario.numero_departamento AND projeto.numero_projeto = trabalha_em.numero_projeto AND trabalha_em.horas = 0;
+
+# RESPOSTA 13
+
+
+# RESPOSTA 14
+SELECT nome_departamento, COUNT(funcionario.numero_departamento) AS numero_de_funcionarios FROM departamento, funcionario WHERE departamento.numero_departamento = funcionario.numero_departamento GROUP BY nome_departamento;
+
+# RESPOSTA 15
