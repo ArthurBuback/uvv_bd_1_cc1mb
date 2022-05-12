@@ -35,7 +35,7 @@ SELECT CONCAT(primeiro_nome, " ", nome_meio,". ", ultimo_nome) AS nome_completo,
 SELECT nome_departamento, nome_projeto, CONCAT(primeiro_nome, " ", nome_meio,". ", ultimo_nome) AS nome_completo FROM departamento, projeto, funcionario, trabalha_em WHERE departamento.numero_departamento = projeto.numero_departamento AND departamento.numero_departamento = funcionario.numero_departamento AND projeto.numero_projeto = trabalha_em.numero_projeto AND trabalha_em.horas = 0;
 
 # RESPOSTA 13
-
+SELECT CONCAT(primeiro_nome, " ", nome_meio, ". ", ultimo_nome) AS presenteados, sexo, TIMESTAMPDIFF(YEAR, data_nascimento, curdate()) AS idade FROM funcionario UNION SELECT CONCAT (nome_dependente," ", nome_meio,". ", ultimo_nome) AS presenteado, dependente.sexo, TIMESTAMPDIFF (YEAR, dependente.data_nascimento, curdate()) AS idade FROM dependente, funcionario WHERE dependente.cpf_funcionario = funcionario.cpf;
 
 # RESPOSTA 14
 SELECT nome_departamento, COUNT(funcionario.numero_departamento) AS numero_de_funcionarios FROM departamento, funcionario WHERE departamento.numero_departamento = funcionario.numero_departamento GROUP BY nome_departamento;
